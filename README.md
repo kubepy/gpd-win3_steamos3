@@ -3,7 +3,7 @@
 
 Control CPUFreq 70%~80% for increasing GPU performance.
 
-### install plasma-pstate wiget for KDE desktop.
+### install `plasma-pstate` wiget for KDE desktop.
 ```
 pacman -S cmake extra-cmake-modules base-devel
 git clone https://github.com/frankenfruity/plasma-pstate
@@ -15,7 +15,7 @@ make
 sudo make install
 ```
 
-### gamescope-session change to DSI-1, -w 1280 -h 720, sleep 6.
+### `gamescope-session` script change to `DSI-1`, `-w 1280 -h 720`, `sleep 6`.
 ```
 gamescope \
 	--generate-drm-mode fixed \
@@ -38,7 +38,8 @@ sleep 6
 
 ### settings 32G swap for hibernating
 
-#### create the swap partition or swap file, advoing use /home dir because systemd permission. If use the /home directory please confirm the issue (https://github.com/systemd/systemd/issues/15354)
+#### create the swap partition or swap file and edit `/etc/fstab`, advoing use `/home` dir because systemd permission.
+#### If use the `/home` directory please confirm the issue (https://github.com/systemd/systemd/issues/15354)
 
 ```
 [Service]
@@ -55,7 +56,7 @@ Environment=SYSTEMD_BYPASS_HIBERNATION_MEMORY_CHECK=1
         GRUB_CMDLINE_LINUX_DEFAULT="fbcon=rotate:1 video=DSI-1:panel_orientation=right_side_up mem_sleep_default=s2idle resume=UUID=ddf7dfaf-98c0-4ad1-b1b4-d78c63113b88 quiet splash loglevel=3 rd.udev.log_priority=3 vt.global_cursor_default=0"
 ```
 
-#### append `resume` arg to /etc/mkinitcpio.conf
+#### append `resume` arg to `/etc/mkinitcpio.conf`.
 
 ```
 vim /etc/mkinitcpio.conf
