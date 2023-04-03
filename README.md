@@ -42,7 +42,7 @@ gamescope_pid="$!"
 sleep 6
 ```
 
-### settings 16G swap for hibernating
+### settings (likely needs 16G+6G ) swap for hibernating, (recommended to 32G) 
 
 #### create the swap partition or swap file and edit `/etc/fstab`, advoing use `/home` dir because systemd permission.
 #### If use the `/home` directory please confirm the issue (https://github.com/systemd/systemd/issues/15354) `systemd-logind.service`
