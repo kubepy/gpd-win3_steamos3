@@ -7,24 +7,25 @@ import os
 powerbuttondev = None
 
 devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
+#for device in devices:
+#    if device.phys == "isa0060/serio0/input0":
+#        powerbuttondev = device;
+#    else:
+#        device.close()
+
+# sort the event id and match the first one
+devices.sort(key=lambda device: int(device.path[-1]))
+found = False
 for device in devices:
-    if device.phys == "isa0060/serio0/input0":
+    if device.name == "Power Button" and not found:
+        print (device)
         powerbuttondev = device;
+        found = True
     else:
         device.close()
-
-######### For check input ############
-# sudo cat /proc/bus/input/devices
-# sudo udevadm info /dev/input/event2
-# sudo evtest
-
-######add user to 'input' group ######
-# sudo usermod -a -G input deck
-
-######################################
-dev_path = '/dev/input/event2'
-powerbuttondev = evdev.InputDevice(dev_path)
-######################################
+        
+#dev_path = '/dev/input/event2'
+#powerbuttondev = evdev.InputDevice(dev_path)
 
 longpresstimer = None
 
@@ -50,3 +51,4 @@ if powerbuttondev != None:
 	exit()
 
 print ( "power-button-handler.py: Can't find device for power button!" )
+
