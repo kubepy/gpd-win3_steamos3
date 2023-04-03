@@ -99,6 +99,20 @@ powerbuttondev = evdev.InputDevice(dev_path)
 ######################################
 ```
 
+then edit the if case, changed to `os.system( "/usr/bin/systemctl hibernate" )`
+```
+		if event.type == evdev.ecodes.EV_KEY and event.code == 116: # KEY_POWER
+			if event.value == 1:
+				longpresstimer = threading.Timer( 1.0, longpress )
+				longpresstimer.start()
+			elif event.value == 0:
+				if longpresstimer != None:
+					os.system( "/usr/bin/systemctl hibernate" )
+					#os.system( "~/.steam/root/ubuntu12_32/steam -ifrunning steam://shortpowerpress" )
+					longpresstimer.cancel()
+					longpresstimer = None
+```
+
 power buttn input device could use `sudo cat /proc/bus/input/devices` or `sudo udevadm info /dev/input/eventX` to check
 for testing the button `event` or `value`, use `sudo evtest` command
 
