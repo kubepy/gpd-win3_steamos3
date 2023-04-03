@@ -63,6 +63,9 @@ Environment=SYSTEMD_BYPASS_HIBERNATION_MEMORY_CHECK=1
 ```
         GRUB_CMDLINE_LINUX_DEFAULT="fbcon=rotate:1 video=DSI-1:panel_orientation=right_side_up mem_sleep_default=s2idle resume=UUID=ddf7dfaf-98c0-4ad1-b1b4-d78c63113b88 quiet splash loglevel=3 rd.udev.log_priority=3 vt.global_cursor_default=0"
 ```
+```
+holoiso-grub-update
+```
 
 #### append `resume` arg to `/etc/mkinitcpio.conf`.
 
