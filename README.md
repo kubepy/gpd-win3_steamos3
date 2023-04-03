@@ -83,7 +83,7 @@ sudo mkinitcpio -P
 ```
 
 #### gamescope mode for hibernate, edit `/usr/lib/power-button-handler.py` for appending this contents.
-### The var 'powerbuttondev' need to specify the input device, gpd win3 is `/dev/input/event`
+#### The var `powerbuttondev` need to specify the input device, gpd win3 is `/dev/input/event`
 #### `sudo usermod -a -G input deck` is `required` if the deck user cannot read the input device without the root permission.
 ```
 dev_path = '/dev/input/event2'
@@ -123,7 +123,7 @@ power buttn input device could use `sudo cat /proc/bus/input/devices` or `sudo u
 for testing the button `event` or `value`, use `sudo evtest` command
 
 ```
- sudo evtest
+# sudo evtest
 No device specified, trying to scan all of /dev/input/event*
 Available devices:
 /dev/input/event0:	Lid Switch
