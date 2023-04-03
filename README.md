@@ -81,3 +81,72 @@ HOOKS=(base udev autodetect modconf block filesystems keyboard resume fsck)
 ```
 sudo mkinitcpio -P
 ```
+
+#### gamescope mode for hibernate, edit `/usr/lib/power-button-handler.py` for appending this contents.
+
+```
+######### For check input ############
+# sudo cat /proc/bus/input/devices
+# sudo udevadm info /dev/input/event2
+# sudo evtest
+
+######add user to 'input' group ######
+# sudo usermod -a -G input deck
+
+######################################
+dev_path = '/dev/input/event2'
+powerbuttondev = evdev.InputDevice(dev_path)
+######################################
+```
+
+power buttn input device could use `sudo cat /proc/bus/input/devices` or `sudo udevadm info /dev/input/eventX` to check
+for testing the button `event` or `value`, use `sudo evtest` command
+
+```
+ sudo evtest
+No device specified, trying to scan all of /dev/input/event*
+Available devices:
+/dev/input/event0:	Lid Switch
+/dev/input/event1:	Sleep Button
+/dev/input/event10:	Goodix Capacitive TouchScreen
+/dev/input/event11:	  Mouse for Windows
+/dev/input/event12:	gpio-keys
+/dev/input/event13:	  Mouse for Windows
+/dev/input/event14:	Video Bus
+/dev/input/event15:	Microsoft X-Box 360 pad
+/dev/input/event16:	HDA Intel PCH Mic
+/dev/input/event17:	HDA Intel PCH Headphone
+/dev/input/event18:	HDA Intel PCH HDMI/DP,pcm=3
+/dev/input/event19:	HDA Intel PCH HDMI/DP,pcm=7
+/dev/input/event2:	Power Button
+/dev/input/event20:	HDA Intel PCH HDMI/DP,pcm=8
+/dev/input/event21:	HDA Intel PCH HDMI/DP,pcm=9
+/dev/input/event3:	Power Button
+/dev/input/event4:	Intel HID events
+/dev/input/event5:	Intel HID 5 button array
+/dev/input/event6:	PC Speaker
+/dev/input/event7:	SINO WEALTH 唰匀䈀 䬀攀礀戀漀愀爀搀
+/dev/input/event8:	SINO WEALTH 唰匀䈀 䬀攀礀戀漀愀爀搀 Mouse
+/dev/input/event9:	SINO WEALTH 唰匀䈀 䬀攀礀戀漀愀爀搀 Consumer Control
+```
+push 2 for `/dev/input/event2:	Power Button`
+```
+Select the device event number [0-21]: 2
+Input driver version is 1.0.1
+Input device ID: bus 0x19 vendor 0x0 product 0x1 version 0x0
+Input device name: "Power Button"
+Supported events:
+  Event type 0 (EV_SYN)
+  Event type 1 (EV_KEY)
+    Event code 116 (KEY_POWER)
+Properties:
+Testing ... (interrupt to exit)	
+```
+
+push the power bottun will print, it knows the device is `/dev/input/event2` and the code `116` and the `value`
+```
+Event: time 1680525622.223988, type 1 (EV_KEY), code 116 (KEY_POWER), value 1
+Event: time 1680525622.223988, -------------- SYN_REPORT ------------
+Event: time 1680525622.224007, type 1 (EV_KEY), code 116 (KEY_POWER), value 0
+Event: time 1680525622.224007, -------------- SYN_REPORT ------------
+```
