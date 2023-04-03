@@ -83,6 +83,7 @@ sudo mkinitcpio -P
 ```
 
 #### gamescope mode for hibernate, edit `/usr/lib/power-button-handler.py` for appending this contents.
+#### `sudo usermod -a -G input deck` is `required` if the deck user cannot read the input device without the root permission.
 
 ```
 ######### For check input ############
