@@ -143,7 +143,7 @@ Properties:
 Testing ... (interrupt to exit)	
 ```
 
-push the power bottun will print, it knows the device is `/dev/input/event2` and the code `116` and the `value`
+push the power bottun will print, it knows the device is `/dev/input/event2` and the is code `116` and the `value` is `1` or `0`
 ```
 Event: time 1680525622.223988, type 1 (EV_KEY), code 116 (KEY_POWER), value 1
 Event: time 1680525622.223988, -------------- SYN_REPORT ------------
