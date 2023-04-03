@@ -90,19 +90,18 @@ dev_path = '/dev/input/event2'
 powerbuttondev = evdev.InputDevice(dev_path)
 ```
 
+Also can sort the event id for selecting the first one.
 ```
-######### For check input ############
-# sudo cat /proc/bus/input/devices
-# sudo udevadm info /dev/input/event2
-# sudo evtest
-
-######add user to 'input' group ######
-# sudo usermod -a -G input deck
-
-######################################
-dev_path = '/dev/input/event2'
-powerbuttondev = evdev.InputDevice(dev_path)
-######################################
+# sort the event id and match the first one
+devices.sort(key=lambda device: int(device.path[-1]))
+found = False
+for device in devices:
+    if device.name == "Power Button" and not found:
+        print (device)
+        powerbuttondev = device;
+        found = True
+    else:
+        device.close()
 ```
 
 then edit the if case, changed to `os.system( "/usr/bin/systemctl hibernate" )`
