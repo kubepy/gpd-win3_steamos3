@@ -1,5 +1,11 @@
 # gpd-win3_steamos3
 
+`HoloISO_4.5-rc1_beta-candidate-20230324_d1cc6e5738_intel_mesa_changes-1-x86_64.iso`
+
+After installed, chroot to disable default gamescope startup.
+```
+holoiso-disable-sessions
+```
 
 Control CPUFreq 70%~80% for increasing GPU performance.
 
