@@ -2,13 +2,9 @@
 
 case $1 in
     pre)
-        for mod in $(</etc/systemd-suspend-mods.conf); do
-            rmmod $mod
-        done
+        #sysctl -w vm.swappiness=1
     ;;
     post)
-        for mod in $(</etc/systemd-suspend-mods.conf); do
-            modprobe $mod
-        done
+        sysctl -w vm.swappiness=1
     ;;
 esac
