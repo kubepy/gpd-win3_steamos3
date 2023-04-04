@@ -174,3 +174,24 @@ Event: time 1680525622.223988, -------------- SYN_REPORT ------------
 Event: time 1680525622.224007, type 1 (EV_KEY), code 116 (KEY_POWER), value 0
 Event: time 1680525622.224007, -------------- SYN_REPORT ------------
 ```
+
+For `vm.swappiness` changed to vm.swappiness=1, modify `/etc/sysctl.d/zz-swappiness.conf` & `/usr/lib/systemd/system-sleep/systemd-hibernate-shell.sh`
+
+/etc/sysctl.d/zz-swappiness.conf
+```
+vm.swappiness=1
+```
+
+/usr/lib/systemd/system-sleep/systemd-hibernate-shell.sh
+```
+#!/bin/bash
+
+case $1 in
+    pre)
+        #sysctl -w vm.swappiness=1
+    ;;
+    post)
+        sysctl -w vm.swappiness=1
+    ;;
+esac
+```
