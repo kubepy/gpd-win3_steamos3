@@ -6,7 +6,7 @@ After=local-fs.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/sudo /usr/share/plasma/plasmoids/gr.ictpro.jsalatas.plasma.pstate/contents/code/set_prefs.sh -write-sensor cpu_max_perf 70
+ExecStart=/usr/bin/sudo /usr/share/plasma/plasmoids/gr.ictpro.jsalatas.plasma.pstate/contents/code/set_prefs.sh -write-sensor cpu_max_perf 70 || true
 RemainAfterExit=yes
 
 [Install]
