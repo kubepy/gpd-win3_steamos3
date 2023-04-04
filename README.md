@@ -20,6 +20,26 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE=Release ..
 make
 sudo make install
 ```
+#### create `/etc/systemd/system/set_prefs.service` for tunning `cpu_max_perf=70` after startup
+```
+[Unit]
+Description=Set Performance Script
+Requires=local-fs.target
+After=local-fs.target
+
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sudo /usr/share/plasma/plasmoids/gr.ictpro.jsalatas.plasma.pstate/contents/code/set_prefs.sh -write-sensor cpu_max_perf 70 || true
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
+```
+```
+systemctl enable set_prefs --now
+```
+
 
 ### `gamescope-session` script change to `DSI-1`, `-w 1280 -h 720`, `sleep 6`.
 ```
