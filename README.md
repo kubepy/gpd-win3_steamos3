@@ -104,6 +104,11 @@ for device in devices:
         device.close()
 ```
 
+Input devices permission setup for deck user, then `systemctl reboot`, it should work after `reboot`.
+```
+sudo usermod -a -G input deck
+```
+
 then edit the if case, changed to `os.system( "/usr/bin/systemctl hibernate" )`
 ```
 		if event.type == evdev.ecodes.EV_KEY and event.code == 116: # KEY_POWER
