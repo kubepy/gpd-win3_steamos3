@@ -2,7 +2,11 @@
 
 case $1 in
     pre)
-        #sysctl -w vm.swappiness=1
+        (
+            echo 1 > /proc/sys/vm/drop_caches
+        ) &
+        wait
+        echo "'echo 1 > /proc/sys/vm/drop_caches' is finished"
     ;;
     post)
         sysctl -w vm.swappiness=1
