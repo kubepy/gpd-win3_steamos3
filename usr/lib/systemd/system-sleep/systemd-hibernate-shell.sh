@@ -2,11 +2,12 @@
 
 case $1 in
     pre)
+        sync
         (
-            echo 1 > /proc/sys/vm/drop_caches
+            echo 3 > /proc/sys/vm/drop_caches
         ) &
         wait
-        echo "'echo 1 > /proc/sys/vm/drop_caches' is finished"
+        echo "'echo 3 > /proc/sys/vm/drop_caches' is finished"
     ;;
     post)
         sysctl -w vm.swappiness=1
