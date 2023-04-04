@@ -1,0 +1,13 @@
+[Unit]
+Description=Set Performance Script
+Requires=local-fs.target
+After=local-fs.target
+
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sudo /usr/share/plasma/plasmoids/gr.ictpro.jsalatas.plasma.pstate/contents/code/set_prefs.sh -write-sensor cpu_max_perf 70
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
