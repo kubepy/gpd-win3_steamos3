@@ -41,7 +41,7 @@ systemctl enable set_prefs --now
 ```
 
 
-### `gamescope-session` script change to `DSI-1`, `-w 1280 -h 720`, `sleep 6`.
+### `gamescope-session` script change to `DSI1`, `-w 1280 -h 720`, `sleep 6`.
 ```
 gamescope \
 	--generate-drm-mode fixed \
@@ -52,14 +52,14 @@ gamescope \
 	--max-scale 2 \
 	--fade-out-duration 200 \
 	-e -R "$socket" -T "$stats" \
-	-O '*',DSI-1 \
+	-O '*',DSI1 \
 	--force-orientation right \
 	-f \
 	--cursor-hotspot 5,3 --cursor /usr/share/steamos/steamos-cursor.png \
 	&
 gamescope_pid="$!"
 
-sleep 6
+sleep 5
 ```
 
 ### settings (likely requires 16G+8G ) swap for hibernating, (recommended to 32G) 
