@@ -10,6 +10,7 @@ export HOMETEST_DESKTOP_SESSION=plasma
 
 export STEAM_USE_MANGOAPP=1
 export MANGOHUD_CONFIGFILE=$(mktemp /tmp/mangohud.XXXXXXXX)
+export MANGOHUD_PRESETS=1
 
 export STEAM_USE_DYNAMIC_VRS=1
 export RADV_FORCE_VRS_CONFIG_FILE=$(mktemp /tmp/radv_vrs.XXXXXXXX)
@@ -218,14 +219,14 @@ gamescope \
 	--max-scale 2 \
 	--fade-out-duration 200 \
 	-e -R "$socket" -T "$stats" \
-	-O '*',DSI-1 \
+	-O '*',DSI1 \
 	--force-orientation right \
 	-f \
 	--cursor-hotspot 5,3 --cursor /usr/share/steamos/steamos-cursor.png \
 	&
 gamescope_pid="$!"
 
-sleep 6
+sleep 5
 
 if read -r -t 3 response_x_display response_wl_display <> "$socket"; then
 	export DISPLAY="$response_x_display"
