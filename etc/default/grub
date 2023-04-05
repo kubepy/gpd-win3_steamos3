@@ -43,7 +43,7 @@ elif [ -n "$(lspci | grep VGA | cut -d ':' -f 3 | grep NVIDIA)" ]; then
 else
         GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3 rd.udev.log_priority=3 vt.global_cursor_default=0"
 fi
-        GRUB_CMDLINE_LINUX_DEFAULT="fbcon=rotate:1 video=DSI-1:panel_orientation=right_side_up mem_sleep_default=s2idle resume=UUID=ddf7dfaf-98c0-4ad1-b1b4-d78c63113b88 quiet splash loglevel=3 rd.udev.log_priority=3 vt.global_cursor_default=0"
+        GRUB_CMDLINE_LINUX_DEFAULT="fbcon=rotate:1 video=DSI1:panel_orientation=right_side_up mem_sleep_default=s2idle resume=UUID=ddf7dfaf-98c0-4ad1-b1b4-d78c63113b88 quiet splash loglevel=3 rd.udev.log_priority=3 vt.global_cursor_default=0"
         GRUB_GFXMODE=720x1280x32
         GRUB_TIMEOUT=1
 
