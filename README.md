@@ -3,7 +3,14 @@
 The tutorial is based on the `HoloISO_4.5-rc1_beta-candidate-20230324_d1cc6e5738_intel_mesa_changes-1-x86_64.iso`.
 
 **---Direct Download Link---** GPD WIN3 (modified for GPD WIN3 only) HOLOISO download:
-[HOLOISO for GPD WIN3](https://drive.google.com/file/d/1_dCNPGFQ_ZbcmoBIpYQ6uTbiRtIdDMz-/view?usp=share_link)
+[HOLOISO for GPD WIN3(20230424) latest](https://drive.google.com/file/d/14xPUf7HOLmTrsKmZQZyQKKIUmvRVqydk/view?usp=share_link)
+
+the following 2 two variable has been added to gamescope-session in the `20230424` version.
+```
+export mesa_glthread=true
+export INTEL_DEBUG=noccs
+```
+~~[HOLOISO for GPD WIN3(20230414)](https://drive.google.com/file/d/1_dCNPGFQ_ZbcmoBIpYQ6uTbiRtIdDMz-/view?usp=share_link)~~
 
 After installed, chroot to disable default gamescope startup.
 ```
