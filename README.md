@@ -230,3 +230,11 @@ case $1 in
     ;;
 esac
 ```
+
+### Disable steam client auto startup
+It is required to close the steam client first, then use desktop shortcut to enter the gamescope mode.
+If don't want the steam client autostart, please move the steam.desktop file to other path.
+```
+sudo mv /etc/xdg/autostart/steam.desktop /home/
+```
+
